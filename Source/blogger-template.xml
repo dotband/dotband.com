@@ -5,17 +5,7 @@
 <link href='http://fonts.googleapis.com/css?family=Neuton' rel='stylesheet' type='text/css'/>
     <b:include data='blog' name='all-head-content'/>
     <title><data:blog.pageTitle/></title>
-    <b:skin><![CDATA[/*
------------------------------------------------
-Blogger Template Style
-Name:   Poliart
-Author: Klodian
-URL:    www.deluxetemplates.net
-Date:   November 2010
-
-License:  This free Blogger template is licensed under the Creative Commons Attribution 3.0 License, which permits both personal and commercial use. However, to satisfy the 'attribution' clause of the license, you are required to keep the footer links intact which provides due credit to its authors. For more specific details about the license, you may visit the URL below:
-http://creativecommons.org/licenses/by/3.0
------------------------------------------------ */
+    <b:skin><![CDATA[
 #navbar-iframe {
 display: none !important;
 }
@@ -1462,7 +1452,6 @@ padding-left:20px;
   </div></div> <!-- end outer-wrapper -->
 <div id='footer-bg'>
 <div id='footer'>
-<!-- Remmeber!!! This free Blogger template is licensed under the Creative Commons Attribution 3.0 License. You are required to keep the footer links intact which provides due credit to its Author and Supporters. If you have plan to remove any link, its better for you, not to use the template. [DMCA / Blogger] -->
  <div class='first-links'> Copyright (c) 2010 <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> - Power by <a href='http://blogger.com'>Blogger</a>.</div> 
 </div></div>
    
