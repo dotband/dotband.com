@@ -35,7 +35,7 @@ display: none !important;
              default="bold 130%/1.4em 'Arial',Trebuchet,Arial,Verdana,Sans-serif" value="bold 130%/1.4em 'Arial',Trebuchet,Arial,Verdana,Sans-serif">
    <Variable name="pagetitlefont" description="Blog Title Font"
              type="font"
-             default="bold 200% Neuton,Serif" value="bold 200% Neuton,Serif">
+             default="bold 240% Neuton,Serif" value="bold 240% Neuton,Serif">
    <Variable name="descriptionfont" description="Blog Description Font"
              type="font"
              default="normal normal 90% 'Arial',Trebuchet,Arial,Verdana,Sans-serif" value="normal normal 90% 'Arial',Trebuchet,Arial,Verdana,Sans-serif">
