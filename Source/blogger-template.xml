@@ -477,6 +477,16 @@ padding-left:20px;
 background:url("http://4.bp.blogspot.com/_8GxSJXcDIwk/TBNALDZe_0I/AAAAAAAABqk/cS_OBWXZEQs/s1600/1276330011_tags.png") no-repeat scroll left center transparent;
 padding-left:20px;
 }
+
+/* hack */
+.share-button {
+	float: left;
+}
+
+.post-comment-link, .post-footer-line-2 {
+	clear: both;
+}
+/* end hack */
 ]]></b:skin>
   </head>
 
@@ -925,7 +935,7 @@ padding-left:20px;
             <div class='post-footer-line post-footer-line-2'>
               <b:if cond='data:top.showMobileShare'>
                 <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
-                  <a href='javascript:void();'><data:shareMsg/></a>
+                  <a href='javascript:void(0);'><data:shareMsg/></a>
                 </div>
               </b:if>
               <b:if cond='data:top.showDummy'>
