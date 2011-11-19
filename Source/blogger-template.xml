@@ -1533,7 +1533,8 @@ background-color: white;
   </div></div> <!-- end outer-wrapper -->
 <div id='footer-bg'>
 <div id='footer'>
- <div class='first-links'> Copyright (c) 2011 <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> - Power by <a href='http://blogger.com'>Blogger</a>.</div> 
+ <div class='first-links'> Copyright (c) 2011 <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> - Power by <a href='http://blogger.com'>Blogger</a>.</div>
+<a href='http://creativecommons.org/licenses/by-nc-nd/3.0/'>Creative Commons - Attribution, Noncommercial, No Derivative Works 3.0 License </a>
 </div></div>
    
 <a href='http://github.com/dotband'><img alt='Fork me on GitHub' src='https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67' style='position: absolute; top: 0; right: 0; border: 0;'/></a>
