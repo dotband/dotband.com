@@ -486,12 +486,16 @@ padding-left:20px;
 .post-comment-link, .post-footer-line-2 {
 	clear: both;
 }
+
+.post-footer {
+background-color: white;
+}
 /* end hack */
 ]]></b:skin>
 
-  <script src="http://static.dotband.com/mediaelement/jquery.js"></script>
-  <script src="http://static.dotband.com/mediaelement/mediaelement-and-player.min.js"></script>
-  <link rel="stylesheet" href="http://static.dotband.com/mediaelement/mediaelementplayer.css" />
+  <script src='http://static.dotband.com/mediaelement/jquery.js'/>
+  <script src='http://static.dotband.com/mediaelement/mediaelement-and-player.min.js'/>
+  <link href='http://static.dotband.com/mediaelement/mediaelementplayer.css' rel='stylesheet'/>
 
   </head>
 
@@ -912,8 +916,15 @@ padding-left:20px;
             <div class='post-footer-line post-footer-line-1'>
               <span class='post-author vcard'>
                 <b:if cond='data:top.showAuthor'>
-                  <data:top.authorLabel/>
-                  <span class='fn'><data:post.author/></span>
+                  <b:if cond='data:post.authorProfileUrl'>
+                    <span class='fn'>
+                      <a expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                        <data:post.author/>
+                      </a>
+                    </span>
+                  <b:else/>
+                    <span class='fn'><data:post.author/></span>
+                  </b:if>
                 </b:if>
               </span>
 
@@ -1211,6 +1222,40 @@ padding-left:20px;
   </div>
 </b:includable>
 </b:widget>
+<b:widget id='HTML1' locked='false' title='Disqus for dotband.com' type='HTML'>
+<b:includable id='main'>
+            <script type='text/javascript'>
+                var disqus_shortname = &#39;dotband&#39;;
+                var disqus_blogger_current_url = &#39;<data:blog.url/>&#39;;
+            </script>
+            <b:if cond='data:blog.pageType == &quot;item&quot;'>                        
+                <style type='text/css'>
+                    #comments {display:none;}
+                </style>
+                <script type='text/javascript'>
+                    (function() {
+                        var bloggerjs = document.createElement(&#39;script&#39;);
+                        bloggerjs.type = &#39;text/javascript&#39;;
+                        bloggerjs.async = true;
+                        bloggerjs.src = &#39;http://&#39;+disqus_shortname+&#39;.disqus.com/blogger_item.js&#39;;
+                        (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(bloggerjs);
+                    })();
+                </script>
+            </b:if>
+                <style type='text/css'>
+                    .post-comment-link { visibility: hidden; }
+                </style>
+                <script type='text/javascript'>
+                (function() {
+                    var bloggerjs = document.createElement(&#39;script&#39;);
+                    bloggerjs.type = &#39;text/javascript&#39;;
+                    bloggerjs.async = true;
+                    bloggerjs.src = &#39;http://&#39;+disqus_shortname+&#39;.disqus.com/blogger_index.js&#39;;
+                    (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(bloggerjs);
+                })();
+                </script>
+        </b:includable>
+</b:widget>
 </b:section>
       </div>
 
@@ -1473,7 +1518,7 @@ padding-left:20px;
 <a href='http://github.com/dotband'><img alt='Fork me on GitHub' src='https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67' style='position: absolute; top: 0; right: 0; border: 0;'/></a>
 
 <script>
-  $('video,audio').mediaelementplayer();
+  $('video,audio').mediaelementplayer().pause();
 </script>
 
 </body>
