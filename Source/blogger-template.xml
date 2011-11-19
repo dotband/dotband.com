@@ -423,7 +423,7 @@ float:right;
 height:40px;
 margin-right:3px;
 margin-top:0;
-width:274px;
+width:304px;
 }
 .searchbox .textfield {
 -moz-background-inline-policy:continuous;
@@ -477,7 +477,9 @@ padding-left:20px;
 background:url("http://4.bp.blogspot.com/_8GxSJXcDIwk/TBNALDZe_0I/AAAAAAAABqk/cS_OBWXZEQs/s1600/1276330011_tags.png") no-repeat scroll left center transparent;
 padding-left:20px;
 }
-
+.content .textfield {
+	color: white;
+}
 /* hack */
 .share-button {
 	float: left;
@@ -511,8 +513,7 @@ background-color: white;
 
     <div id='header-wrapper'>
 <div id='headertw'>
-<div class='social'><a href='http://www.twitter.com/csharpus'><img src='http://4.bp.blogspot.com/_Ax-O2ayi6kU/TNLE0vEthXI/AAAAAAAAASU/KqRwRr72UQQ/s1600/twitter.png'/></a>
-<a expr:href='data:blog.homepageUrl + &quot;feeds/posts/default&quot;'><img src='http://3.bp.blogspot.com/_Ax-O2ayi6kU/TNLE05FXIrI/AAAAAAAAASc/3wEwyd0Yht4/s1600/rss.png'/></a> </div>  <div class='searchbox'>
+<div class='social'> <div class='searchbox'>
 <form action='/search' id='searchthis' method='get'>
 <div class='content'>
 <input class='textfield' name='q' size='24' type='text' value=''/>
