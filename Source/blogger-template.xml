@@ -1675,6 +1675,19 @@ background-color: white;
 
       <div id='sidebar-wrapper'>
         <b:section class='sidebar' id='sidebar' preferred='yes'>
+<b:widget id='HTML4' locked='false' title='' type='HTML'>
+<b:includable id='main'>
+  <!-- only display title if it's non-empty -->
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+
+  <b:include name='quickedit'/>
+</b:includable>
+</b:widget>
 <b:widget id='Image2' locked='false' title='' type='Image'>
 <b:includable id='main'>
     <b:if cond='data:title != &quot;&quot;'>
