@@ -498,8 +498,6 @@ background-color: white;
   <script src='http://static.dotband.com/mediaelement/jquery.js'/>
   <script src='http://static.dotband.com/mediaelement/mediaelement-and-player.min.js'/>
   <link href='http://static.dotband.com/mediaelement/mediaelementplayer.css' rel='stylesheet'/>
-<script type='text/javascript'>var mu_id=93;</script>
-<script src='http://static.makeuptor.com/js/mu.js' type='text/javascript'/>
   </head>
 
   <body>
@@ -648,7 +646,7 @@ background-color: white;
   </b:if>
 </b:includable>
 <b:includable id='threaded_comment_js' var='post'>
-  <script defer='defer' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
 
   <script type='text/javascript'>
     (function() {
@@ -660,6 +658,7 @@ background-color: white;
       var authorUrl = &#39;<data:post.authorUrl/>&#39;;
       var blogId = &#39;<data:top.id/>&#39;;
       var baseUri = &#39;<data:post.commentBase/>&#39;;
+      var maxThreadDepth = &#39;<data:post.commentMaxThreadDepth/>&#39;;
 
 // <![CDATA[
       feed += '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
@@ -714,7 +713,6 @@ background-color: white;
             comment.deleteclass = 'item-control blog-admin';
             if (entry.gd$extendedProperty) {
               for (var k in entry.gd$extendedProperty) {
-                console.log(entry.gd$extendedProperty[k].name + ' - ' + entry.gd$extendedProperty[k].value);
                 if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
                   comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
                 }
@@ -792,7 +790,7 @@ background-color: white;
 
       // Configure commenting API:
       var configJso = {
-        'maxDepth': 2
+        'maxDepth': maxThreadDepth
       };
       var provider = {
         'id': postId,
@@ -1026,8 +1024,6 @@ background-color: white;
   </div>
 </b:includable>
 <b:includable id='threaded_comments' var='post'>
-  <b:include name='threaded_comment_css'/>
-
   <div class='comments' id='comments'>
     <a name='comments'/>
     <h4>
@@ -1318,163 +1314,6 @@ background-color: white;
       BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;, &#39;<data:post.communityId/>&#39;);
     </script>
   </div>
-</b:includable>
-<b:includable id='threaded_comment_css'>
-  <style>
-.comments {
-  clear: both;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  line-height: 1em;
-}
-.comments .comments-content {
-  font-size: 13px;
-  margin-bottom: 16px;
-}
-.comments .comment .comment-actions a {
-  padding-top: 5px;
-  padding-right: 5px;
-}
-.comments .comment .comment-actions a:hover {
-  text-decoration: underline;
-}
-.comments .comments-content .comment-thread ol {
-  list-style-type: none;
-  padding: 0;
-  text-align: left;
-}
-.comments .comments-content .inline-thread {
-  padding: 0.5em 1em;
-}
-.comments .comments-content .comment-thread {
-  margin: 8px 0px;
-}
-.comments .comments-content .comment-thread:empty {
-  display: none;
-}
-.comments .comments-content .comment-replies {
-  margin-top: 1em;
-  margin-left: 36px;
-}
-.comments .comments-content .comment {
-  margin-bottom:16px;
-  padding-bottom:8px;
-}
-.comments .comments-content .comment:first-child {
-  padding-top:16px;
-}
-.comments .comments-content .comment:last-child {
-  border-bottom:0;
-  padding-bottom:0;
-}
-.comments .comments-content .comment-body {
-  position:relative;
-}
-.comments .comments-content .user {
-  font-style:normal;
-  font-weight:bold;
-}
-.comments .comments-content .icon.blog-author {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  margin: 0 0 -4px 6px;
-}
-.comments .comments-content .datetime {
-  margin-left:6px;
-}
-.comments .comments-content .comment-header,
-.comments .comments-content .comment-content {
-  margin:0 0 8px;
-}
-.comments .comments-content .comment-content {
-  text-align:justify;
-}
-.comments .comments-content .owner-actions {
-  position:absolute;
-  right:0;
-  top:0;
-}
-.comments .comments-replybox {
-  border: none;
-  height: 250px;
-  width: 100%;
-}
-.comments .comment-replybox-single {
-  margin-top: 5px;
-  margin-left: 48px;
-}
-.comments .comment-replybox-thread {
-  margin-top: 5px;
-}
-.comments .comments-content .loadmore a {
-  display: block;
-  padding: 10px 16px;
-  text-align: center;
-}
-.comments .thread-toggle {
-  cursor: pointer;
-  display: inline-block;
-}
-.comments .continue {
-  cursor: pointer;
-}
-.comments .continue a {
-  display: block;
-  padding: 0.5em;
-  font-weight: bold;
-}
-.comments .comments-content .loadmore {
-  cursor: pointer;
-  max-height: 3em;
-  margin-top: 3em;
-}
-.comments .comments-content .loadmore.loaded {
-  max-height: 0px;
-  opacity: 0;
-  overflow: hidden;
-}
-.comments .thread-chrome.thread-collapsed {
-  display: none;
-}
-.comments .thread-toggle {
-  display: inline-block;
-}
-.comments .thread-toggle .thread-arrow {
-  display: inline-block;
-  height: 6px;
-  width: 7px;
-  overflow: visible;
-  margin: 0.3em;
-  padding-right: 4px;
-}
-.comments .thread-expanded .thread-arrow {
-  background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC&quot;) no-repeat scroll 0 0 transparent;
-}
-.comments .thread-collapsed .thread-arrow {
-  background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAJUlEQVR42mNgAILy8vL/DLgASBKnApgkVgXIkhgKiNKJ005s4gDLbCZBiSxfygAAAABJRU5ErkJggg==&quot;) no-repeat scroll 0 0 transparent;
-}
-.comments .avatar-image-container {
-  float: left;
-  width: 36px;
-  max-height: 36px;
-  overflow: hidden;
-}
-.comments .avatar-image-container img {
-  width: 36px;
-}
-.comments .comment-block {
-  margin-left: 48px;
-  position: relative;
-}
-
-/* Responsive styles. */
-@media screen and (max-device-width: 480px) {
-  .comments .comments-content .comment-replies {
-    margin-left: 0;
-  }
-}
-  </style>
 </b:includable>
 <b:includable id='mobile-index-post' var='post'>
   <div class='mobile-date-outer date-outer'>
@@ -1989,6 +1828,21 @@ background-color: white;
     var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(uv, s);
   })();
 </script>
+
+<!-- Yandex.Metrika counter -->
+<div style='display:none;'><script type='text/javascript'>
+(function(w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter12193165 = new Ya.Metrika({id:12193165, enableAll: true, webvisor:true});
+        }
+        catch(e) { }
+    });
+})(window, &quot;yandex_metrika_callbacks&quot;);
+</script></div>
+<script defer='defer' src='//mc.yandex.ru/metrika/watch.js' type='text/javascript'/>
+<noscript><div><img alt='' src='//mc.yandex.ru/watch/12193165' style='position:absolute; left:-9999px;'/></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 </body>
 </html>
