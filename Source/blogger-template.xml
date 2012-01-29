@@ -1814,7 +1814,8 @@ background-color: white;
 
 	var p = $(&#39;video,audio&#39;).each(function () {
 		var src = $(this).attr(&#39;src&#39;);
-		$(this).before(&#39;<a href=' + src + '>Скачать этот выпуск</a><br/>&#39;);
+var srcWithStatistic = src.replace(&#39;http://&#39;, &#39;http://www.podtrac.com/pts/redirect.mp3/&#39;);
+		$(this).before(&#39;<a href=' + srcWithStatistic + '>Скачать этот выпуск</a><br/>&#39;);
 	});
 
   $(&#39;video,audio&#39;).mediaelementplayer().pause();
@@ -1843,6 +1844,21 @@ background-color: white;
 <script defer='defer' src='//mc.yandex.ru/metrika/watch.js' type='text/javascript'/>
 <noscript><div><img alt='' src='//mc.yandex.ru/watch/12193165' style='position:absolute; left:-9999px;'/></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<script type='text/javascript'>
+
+  var _gaq = _gaq || [];
+  _gaq.push([&#39;_setAccount&#39;, &#39;UA-27150324-1&#39;]);
+  _gaq.push([&#39;_setDomainName&#39;, &#39;dotband.com&#39;]);
+  _gaq.push([&#39;_trackPageview&#39;]);
+
+  (function() {
+    var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 </body>
 </html>
