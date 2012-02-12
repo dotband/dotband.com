@@ -784,9 +784,13 @@ background-color: white;
         }
       };
 
-      var tok = 'comment-form_';
-      var hash = window.location.hash || '';
-      var startThread = hash.indexOf(tok) == 1 ? hash.substring(tok.length + 1) : undefined;
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
 
       // Configure commenting API:
       var configJso = {
@@ -800,6 +804,7 @@ background-color: white;
         'getMeta': getMeta,
         'onReply': onReply,
         'rendered': true,
+        'initComment': targetComment,
         'initReplyThread': startThread,
         'config': configJso,
         'messages': msgs
@@ -1479,7 +1484,12 @@ background-color: white;
 <b:includable id='main'>
             <script type='text/javascript'>
                 var disqus_shortname = &#39;dotband&#39;;
-                var disqus_blogger_current_url = &#39;<data:blog.url/>&#39;;
+                var disqus_blogger_current_url = &quot;<data:blog.canonicalUrl/>&quot;;
+                if (!disqus_blogger_current_url.length) {
+                    disqus_blogger_current_url = &quot;<data:blog.url/>&quot;;
+                }
+                var disqus_blogger_homepage_url = &quot;<data:blog.homepageUrl/>&quot;;
+                var disqus_blogger_canonical_homepage_url = &quot;<data:blog.canonicalHomepageUrl/>&quot;;
             </script>
             <b:if cond='data:blog.pageType == &quot;item&quot;'>                        
                 <style type='text/css'>
